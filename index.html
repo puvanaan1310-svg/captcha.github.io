@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo CAPTCHA Verification</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <section class="panel">
+      <h1>Verify to continue</h1>
+      <p class="intro">Please complete the verification below to access the demo page.</p>
+
+      <div class="captcha-card">
+        <div class="captcha-row">
+          <label class="fake-checkbox">
+            <input id="verifyCheckbox" type="checkbox" />
+            <span class="checkbox-custom"></span>
+          </label>
+          <div>
+            <p class="captcha-label">I'm not a robot</p>
+            <p class="captcha-help">This is a demo of a fake CAPTCHA scam page.</p>
+          </div>
+        </div>
+        <button id="startButton" class="primary-btn" type="button">Continue</button>
+      </div>
+
+      <div id="commandStep" class="hidden step-card">
+        <h2>Final verification step</h2>
+        <p>On a real scam page, this step would ask you to paste a command into your system tool.</p>
+        <p>This demo uses a safe placeholder command only.</p>
+
+        <label for="safeCommand" class="textarea-label">Copy the command below:</label>
+        <textarea id="safeCommand" readonly>cmd.exe /c echo Demo verification complete</textarea>
+
+        <div class="button-row">
+          <button id="copiedButton" class="secondary-btn" type="button">I copied it</button>
+          <button id="continueButton" class="primary-btn" type="button">Go to demo page</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const checkbox = document.getElementById('verifyCheckbox');
+    const startButton = document.getElementById('startButton');
+    const commandStep = document.getElementById('commandStep');
+    const continueButton = document.getElementById('continueButton');
+    const copiedButton = document.getElementById('copiedButton');
+    const safeCommand = document.getElementById('safeCommand');
+
+    startButton.addEventListener('click', () => {
+      if (!checkbox.checked) {
+        alert('Please check the box to proceed.');
+        return;
+      }
+      commandStep.classList.remove('hidden');
+      commandStep.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    copiedButton.addEventListener('click', () => {
+      safeCommand.select();
+      document.execCommand('copy');
+      alert('Command copied. This is a safe demo command only.');
+    });
+
+    continueButton.addEventListener('click', () => {
+      window.location.href = 'verified.html';
+    });
+  </script>
+</body>
+</html>
