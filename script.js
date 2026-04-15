@@ -59,18 +59,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function restoreModalContent() {
         modal.querySelector('.modal-body').innerHTML = `
+            <p class="intro-text">Follow these demo verification steps below. No actual system action is required.</p>
             <div class="steps-container">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div class="step-text">Press Windows Button "<span class=\"windows-icon\">⊞</span>" + R</div>
+                    <div class="step-text">Review the verification steps shown here.</div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div class="step-text">Press CTRL + V</div>
+                    <div class="step-text">Wait for the demo check to finish automatically.</div>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
-                    <div class="step-text">Press Enter</div>
+                    <div class="step-text">Then click <strong>Close</strong> to return to the page.</div>
                 </div>
             </div>
         `;
