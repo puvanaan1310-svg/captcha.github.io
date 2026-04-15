@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div class="step-text">Press Control + V</div>
+                    <div class="step-text">Press CTRL + V</div>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
@@ -87,6 +87,10 @@ document.addEventListener('keydown', function(event) {
             document.getElementById('modalOverlay').classList.remove('active');
             document.body.style.overflow = '';
             document.getElementById('captcha-checkbox').checked = false;
+            if (verificationTimer) {
+                clearTimeout(verificationTimer);
+            }
+            restoreModalContent();
         }
     }
 });
