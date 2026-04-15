@@ -58,10 +58,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <div class="step-number">1</div>
                     <div class="step-text">Press Windows Button " ⊞ " + R</div>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-text">Press CTRL + V</div>
-                </div>
             </div>
         `;
     }
