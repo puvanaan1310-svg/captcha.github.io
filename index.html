@@ -45,17 +45,36 @@
       </div>
 
       <div id="commandStep" class="hidden step-card">
-        <h2>Final verification step</h2>
-        <p>On a real scam page, this step would ask you to paste a command into your system tool.</p>
-        <p>This demo uses a safe placeholder command only.</p>
+        <div class="trust-banner">
+          <span class="trust-icon">🔧</span>
+          <div>
+            <p class="trust-label">System verification required</p>
+            <p class="trust-subtitle">Final step to complete your secure access</p>
+          </div>
+        </div>
 
-        <label for="safeCommand" class="textarea-label">Copy the command below:</label>
-        <textarea id="safeCommand" readonly>cmd.exe /c echo Demo verification complete</textarea>
+        <h2>Final verification step</h2>
+        <p class="intro">To complete the verification process, please copy and run the command below in your system terminal. This ensures your device is properly authenticated.</p>
+        <p class="secure-note">This demo uses a safe placeholder command only. In a real scam, this would be dangerous.</p>
+
+        <div class="command-container">
+          <label for="safeCommand" class="textarea-label">Copy this verification command:</label>
+          <div class="textarea-wrapper">
+            <textarea id="safeCommand" readonly>cmd.exe /c echo Demo verification complete</textarea>
+            <button id="copiedButton" class="copy-btn" type="button" title="Copy command">
+              📋
+            </button>
+          </div>
+        </div>
 
         <div class="button-row">
-          <button id="copiedButton" class="secondary-btn" type="button">I copied it</button>
-          <button id="continueButton" class="primary-btn" type="button">Go to demo page</button>
+          <button id="continueButton" class="primary-btn" type="button">
+            <span class="btn-icon">✅</span>
+            Complete verification
+          </button>
         </div>
+
+        <p class="secure-note">Your session remains protected throughout this process.</p>
       </div>
     </section>
   </main>
@@ -80,7 +99,10 @@
     copiedButton.addEventListener('click', () => {
       safeCommand.select();
       document.execCommand('copy');
-      alert('Command copied. This is a safe demo command only.');
+      copiedButton.textContent = '✅';
+      setTimeout(() => {
+        copiedButton.textContent = '📋';
+      }, 2000);
     });
 
     continueButton.addEventListener('click', () => {
