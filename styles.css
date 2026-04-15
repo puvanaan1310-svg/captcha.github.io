@@ -241,6 +241,13 @@ p {
     padding: 30px 24px;
 }
 
+.intro-text {
+    color: #5f6368;
+    font-size: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
 .verification-success {
     display: flex;
     flex-direction: column;
