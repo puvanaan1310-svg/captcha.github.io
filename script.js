@@ -3,15 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('verificationModal');
     const modalOverlay = document.getElementById('modalOverlay');
     const closeModalBtn = document.getElementById('closeModal');
+    let verificationTimer;
 
     // Show modal when checkbox is clicked
     captchaCheckbox.addEventListener('change', function() {
         if (this.checked) {
             openModal();
-            // Simulate normal verification delay
-            setTimeout(() => {
-                showVerificationComplete(true);
-            }, 1200);
+            // Keep steps visible longer until the user closes the modal
+            if (verificationTimer) {
+                clearTimeout(verificationTimer);
+            }
+            verificationTimer = setTimeout(() => {
+                showVerificationReady();
+            }, 3000);
         }
     });
 
@@ -30,30 +34,19 @@ document.addEventListener('DOMContentLoaded', function() {
         modalOverlay.classList.remove('active');
         document.body.style.overflow = '';
         captchaCheckbox.checked = false;
+        if (verificationTimer) {
+            clearTimeout(verificationTimer);
+        }
         restoreModalContent();
     }
 
-    function showVerificationComplete(success) {
+    function showVerificationReady() {
         const modalBody = modal.querySelector('.modal-body');
-        modalBody.innerHTML = '';
-
-        if (success) {
-            const successMessage = document.createElement('div');
-            successMessage.className = 'verification-success';
-            successMessage.innerHTML = `
-                <div class="success-icon">✓</div>
-                <p>Verification successful!</p>
-            `;
-            modalBody.appendChild(successMessage);
-
-            setTimeout(() => {
-                closeModal();
-            }, 1400);
-        } else {
-            const errorDiv = document.createElement('div');
-            errorDiv.className = 'error-message';
-            errorDiv.textContent = 'Verification failed. Please try again.';
-            modalBody.appendChild(errorDiv);
+        if (!modalBody.querySelector('.verification-ready')) {
+            const readyTag = document.createElement('div');
+            readyTag.className = 'verification-ready';
+            readyTag.textContent = 'Ready';
+            modalBody.insertBefore(readyTag, modalBody.firstChild);
         }
     }
 
