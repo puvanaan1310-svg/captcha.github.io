@@ -9,14 +9,30 @@
 <body>
   <main class="container">
     <section class="panel">
-      <h1>Verification complete</h1>
-      <p class="intro">You have reached the normal demo page after the fake CAPTCHA flow.</p>
+      <div class="trust-banner">
+        <span class="trust-icon">✅</span>
+        <div>
+          <p class="trust-label">Verification successful</p>
+          <p class="trust-subtitle">Your session is now protected and verified</p>
+        </div>
+      </div>
 
-      <article class="content-card">
+      <h1>Verification complete</h1>
+      <p class="intro">You have successfully completed the demo CAPTCHA verification process. This page represents a normal, safe website that you would access after legitimate verification.</p>
+
+      <div class="captcha-card">
         <h2>Welcome to the safe demo</h2>
-        <p>This page is a normal site page, with no hidden commands or scams.</p>
-        <p>It demonstrates how a fake CAPTCHA scam can lead users to perform unsafe actions.</p>
-      </article>
+        <p>This page demonstrates how a legitimate website looks after proper verification. No hidden commands, no scams, just secure access to your content.</p>
+        <p>In a real scenario, this would be the protected page you were trying to access. The verification process ensures only authorized users can proceed.</p>
+
+        <div class="verification-info">
+          <div class="verification-brand">
+            <span class="brand-chip">SecureTrust</span>
+            <span class="verification-text">Session verified and protected</span>
+          </div>
+          <span class="status-chip success">Verified</span>
+        </div>
+      </div>
 
       <nav class="links-row">
         <a class="primary-link" href="index.html">Back to demo start</a>
