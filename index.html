@@ -7,20 +7,42 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="container">
-    <section class="panel">
-      <div class="trust-banner">
-        <span class="trust-icon">🔒</span>
+  <header class="site-header">
+    <div class="header-content">
+      <div class="logo-section">
+        <span class="logo-icon">🛡️</span>
         <div>
-          <p class="trust-label">Secure verification powered by SecureTrust</p>
-          <p class="trust-subtitle">Trusted protection for your session and device</p>
+          <h2 class="site-title">SecureTrust</h2>
+          <p class="site-tagline">Security Labs</p>
         </div>
       </div>
+      <nav class="header-nav">
+        <a href="#">Security Info</a>
+        <a href="#">Resources</a>
+        <a href="#">Learn More</a>
+      </nav>
+    </div>
+  </header>
 
-      <h1>Verify your identity</h1>
-      <p class="intro">Complete the secure verification below to continue to the demo page. This process protects your session with industry-standard verification.</p>
+  <main class="container">
+    <div class="content-wrapper">
+      <section class="main-content">
+        <div class="intro-section">
+          <h1>Demonstrate the Fake CAPTCHA Scam</h1>
+          <p>This interactive demo shows how phishing pages mimic legitimate verification screens to trick users into running dangerous commands. Learn to recognise these threats.</p>
+        </div>
 
-      <div class="captcha-card">
+        <div class="demo-panel">
+<span class="trust-icon">🔒</span>
+            <div>
+              <p class="trust-label">Secure verification powered by SecureTrust</p>
+              <p class="trust-subtitle">Trusted protection for your session and device</p>
+            </div>
+          </div>
+
+          <h2 style="display: none;">Verify your identity</h2>
+
+          <div class="captcha-card">
         <div class="captcha-row">
           <label class="fake-checkbox">
             <input id="verifyCheckbox" type="checkbox" />
@@ -44,7 +66,7 @@
         <p class="secure-note">Your session is protected. No personal data is shared without permission.</p>
       </div>
 
-      <div id="commandStep" class="hidden step-card">
+          <div id="commandStep" class="hidden step-card">
         <div class="trust-banner">
           <span class="trust-icon">🔧</span>
           <div>
@@ -74,9 +96,39 @@
           </button>
         </div>
 
-        <p class="secure-note">Your session remains protected throughout this process.</p>
-      </div>
-    </section>
+            <p class="secure-note">Your session remains protected throughout this process.</p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">🔒 Security Alert</h3>
+          <p class="sidebar-text">This demo is <strong>100% safe</strong>. It uses harmless placeholder commands to educate about real scam tactics.</p>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">⚠️ Red Flags</h3>
+          <ul class="red-flags-list">
+            <li>Urgent verification requests</li>
+            <li>Copy-paste command prompts</li>
+            <li>Claims of system compromise</li>
+            <li>Unfamiliar security brands</li>
+            <li>Pressure to act immediately</li>
+          </ul>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">✅ Best Practices</h3>
+          <ul class="best-practices-list">
+            <li>Never run terminal commands from websites</li>
+            <li>Verify security alerts independently</li>
+            <li>Use official security tools only</li>
+            <li>When in doubt, ask an expert</li>
+          </ul>
+        </div>
+      </aside>
+    </div>
   </main>
 
   <script>
