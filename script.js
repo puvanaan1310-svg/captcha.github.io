@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="steps-container">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <div class="step-text">Review the verification steps shown here.</div>
+                    <div class="step-text">Press Windows Button " ⊞ " + R</div>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
