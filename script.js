@@ -60,11 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
-                    <div class="step-text">Wait for the demo check to finish automatically.</div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-text">Then click <strong>Close</strong> to return to the page.</div>
+                    <div class="step-text">Press CTRL + V</div>
                 </div>
             </div>
         `;
