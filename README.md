@@ -1,4 +1,4 @@
-# CAPTCHA Demo
+<# CAPTCHA Demo
 
 A simple, local CAPTCHA-style verification page built with pure HTML, CSS, and JavaScript. This is an **educational demonstration only** - it uses no external CAPTCHA service and is safe to open directly in the browser.
 
@@ -72,7 +72,7 @@ Change the `<h1>` and `<p>` tags in `index.html` to customize the page message.
 
 ## Notes
 
-- **This page is a local UI mockup and educational demonstration only.** It does not use Google reCAPTCHA or provide real bot protection.
+<- **This page is a local UI mockup and educational demonstration only.** It does not use Google reCAPTCHA or provide real bot protection.
 - Intended for demonstration, design reference, or educational use rather than real security implementation.
 
 ## License
